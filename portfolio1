@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Malle Ganesh - Cybersecurity Portfolio</title>
+<style>
+  /* Base Styles */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #1a1a1a;
+    margin: 0; padding: 0;
+  }
+  header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.5);
+  }
+  header h1 {
+    margin: 0;
+    font-weight: 700;
+  }
+  header p {
+    margin: 0.5rem 0 1rem;
+    font-size: 1.1rem;
+  }
+  header a {
+    color: #1abc9c;
+    margin: 0 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  header a:hover {
+    color: #16a085;
+  }
+  main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  section {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(40px);
+    animation-fill-mode: forwards;
+  }
+  section:nth-child(odd) {
+    animation: slideUp 0.8s ease forwards;
+  }
+  section:nth-child(even) {
+    animation: slideUp 0.8s ease forwards;
+    animation-delay: 0.3s;
+  }
+  @keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  h2 {
+    border-bottom: 2px solid #1abc9c;
+    padding-bottom: 0.3rem;
+    margin-top: 0;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  li {
+    margin-bottom: 0.5rem;
+  }
+  a.project-link {
+    color: #2980b9;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  a.project-link:hover {
+    text-decoration: underline;
+  }
+  footer {
+    text-align: center;
+    padding: 1rem 0;
+    color: #777;
+    font-size: 0.9rem;
+  }
+  @media (max-width: 600px) {
+    main {
+      margin: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Malle Ganesh</h1>
+  <p>Entry-Level Cybersecurity Professional | Guntur, Andhra Pradesh, India</p>
+  <p>
+    <a href="mailto:22ht1a4641@gmail.com">22ht1a4641@gmail.com</a> | 
+    <a href="tel:+918978152422">+91 8978152422</a> | 
+    <a href="https://www.linkedin.com/in/malle-ganesh-2a43062ba" target="_blank">LinkedIn</a> | 
+    <a href="https://github.com/deadpool7641" target="_blank">GitHub</a>
+  </p>
+</header>
+<main>
+  <section>
+    <h2>Professional Summary</h2>
+    <p>Cybersecurity enthusiast skilled in penetration testing, vulnerability assessment, and system administration. Proficient in ethical hacking tools, Python, Bash, and network security. Seeking an entry-level role to apply technical expertise in protecting organizational systems.</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <ul>
+      <li><strong>Data Science & Analytics Intern</strong> - Amdocs</li>
+      <ul>
+        <li>Analyzed complex datasets and developed machine learning models using Python.</li>
+        <li>Created data visualizations and dashboards to communicate insights to stakeholders.</li>
+        <li>Collaborated with data scientists on real-time projects, enhancing technical skills.</li>
+      </ul>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Technical Skills</h2>
+    <ul>
+      <li><strong>Security Tools:</strong> Nmap, Burp Suite, Wireshark, Metasploit, Recon-Scanner</li>
+      <li><strong>Programming:</strong> Python, Bash, Java, HTML, CSS, JavaScript, MySQL</li>
+      <li><strong>Systems:</strong> Windows, Linux, macOS</li>
+      <li><strong>Networking:</strong> Configuration, Endpoint Security, Firewall Policies, Network Protocols</li>
+      <li><strong>Cloud:</strong> ZScaler Zero Trust Cloud Security</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <ul>
+      <li>Zscaler Zero Trust Cloud Security: Global Certificate in Zero Trust Cloud Security</li>
+      <li>Ethical Hacking: Certificate focusing on ethical hacking methodologies</li>
+      <li>Penetration Testing: Certification demonstrating proficiency in pre-testing methodologies</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <ul>
+      <li><a href="https://github.com/deadpool7641/Recon-Scanner" class="project-link" target="_blank">Recon-Scanner</a>: Automated reconnaissance and vulnerability detection tool developed in Python.</li>
+      <li><a href="https://github.com/deadpool7641/vulnerability-scanner" class="project-link" target="_blank">Vulnerability-Scanner</a>: Security tool for identifying critical flaws in web applications.</li>
+      <li><a href="https://github.com/deadpool7641/calculator" class="project-link" target="_blank">Calculator</a>: Lightweight web-based calculator utilizing HTML, CSS, and JavaScript.</li>
+      <li><a href="https://github.com/deadpool7641/Fitness-Tracker-original" class="project-link" target="_blank">Fitness-Tracker-original</a>: Simple diet planner based upon user details.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <ul>
+      <li>B.Tech in CSE - Cybersecurity (Pursuing) | Chalapathi Institute of Technology | 2022 - 2026</li>
+      <li>Intermediate (MPC) | Hindu College | 2021</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Hobbies & Interests</h2>
+    <ul>
+      <li>Capture the Flag (CTF) Competitions</li>
+      <li>Bug Bounty Programs</li>
+      <li>Conducting & Testing New Tools (Proof of Concept/User Testing)</li>
+      <li>Troubleshooting & Maintaining OS</li>
+    </ul>
+  </section>
+</main>
+<footer>
+  &copy; 2025 Malle Ganesh. All rights reserved.
+</footer>
+</body>
+</html>
