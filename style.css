@@ -295,7 +295,7 @@ nav {
 }
 
 /* ====================
-Hero Section
+Hero Section (Matrix style)
 ==================== */
 
 .hero {
@@ -303,29 +303,32 @@ Hero Section
   display: flex;
   align-items: center;
   padding-top: 80px;
-  background:
-    radial-gradient(circle at 0% 0%, #1b0b3a 0%, transparent 45%),
-    radial-gradient(circle at 100% 0%, #08234a 0%, transparent 45%),
-    radial-gradient(circle at 0% 100%, #24014a 0%, transparent 45%),
-    radial-gradient(circle at 100% 100%, #021326 0%, transparent 45%),
-    #020010;
+  background-color: var(--primary-dark);
   position: relative;
   overflow: hidden;
 }
 
+/* Purple/blue radial glow + grid */
 .hero::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image:
+  inset: 0;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(155, 91, 255, 0.25) 0%, transparent 55%),
+    radial-gradient(circle at 100% 0%, rgba(50, 195, 255, 0.25) 0%, transparent 55%),
+    radial-gradient(circle at 0% 100%, rgba(155, 91, 255, 0.2) 0%, transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(50, 195, 255, 0.2) 0%, transparent 55%),
     linear-gradient(rgba(88, 101, 242, 0.08) 1px, transparent 1px),
     linear-gradient(90deg, rgba(88, 101, 242, 0.08) 1px, transparent 1px);
-  background-size: 36px 36px;
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    40px 40px,
+    40px 40px;
   mix-blend-mode: screen;
-  opacity: 0.9;
+  opacity: 0.95;
   z-index: 1;
 }
 
@@ -403,23 +406,26 @@ Hero Section
 
 .security-graphic {
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 320px;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
+/* Central shield glowing in purple/blue */
 .shield {
   position: relative;
-  font-size: 8rem;
+  font-size: 7rem;
   color: var(--accent-color-2);
   animation: pulse 2s infinite;
   text-shadow:
-    0 0 15px rgba(155, 91, 255, 1),
-    0 0 30px rgba(50, 195, 255, 0.9);
+    0 0 18px rgba(155, 91, 255, 1),
+    0 0 32px rgba(50, 195, 255, 0.9);
 }
 
+/* Concentric ripple */
 .ripple {
   position: absolute;
   top: 50%;
@@ -427,20 +433,48 @@ Hero Section
   transform: translate(-50%, -50%);
   width: 150px;
   height: 150px;
-  border: 2px solid var(--accent-color-3);
+  border: 1px solid var(--accent-color-3);
   border-radius: 50%;
-  animation: ripple 2s linear infinite;
+  animation: ripple 2.2s linear infinite;
 }
 
+/* Matrix‑style code layer */
 .binary {
   position: absolute;
+  inset: 0;
   font-family: monospace;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: #32c3ff;
-  opacity: 0.9;
-  transform: rotate(-18deg);
-  bottom: 40px;
-  right: -20px;
+  opacity: 0.7;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(50, 195, 255, 0.08) 0,
+      rgba(50, 195, 255, 0.4) 2px,
+      transparent 2px,
+      transparent 16px
+    );
+  background-size: 100% 18px;
+  mix-blend-mode: screen;
+  animation: matrix-fall 1.8s linear infinite;
+}
+
+/* Extra diagonal binary text overlay */
+.security-graphic::after {
+  content: '01 10 11 00 11 01 10 01 11 00 10 11';
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  right: 5%;
+  bottom: 10%;
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: rgba(50, 195, 255, 0.7);
+  opacity: 0.6;
+  white-space: pre-wrap;
+  line-height: 1.4;
+  transform: rotate(-12deg);
   text-shadow:
     0 0 8px rgba(50, 195, 255, 0.9),
     0 0 16px rgba(0, 0, 0, 0.9);
@@ -471,6 +505,15 @@ Hero Section
     width: 200px;
     height: 200px;
     opacity: 0;
+  }
+}
+
+@keyframes matrix-fall {
+  0% {
+    background-position-y: 0;
+  }
+  100% {
+    background-position-y: 18px;
   }
 }
 
@@ -1329,7 +1372,6 @@ Media Queries
 
   .binary {
     font-size: 0.6rem;
-    bottom: 30px;
   }
 
   .cta-buttons .btn {
