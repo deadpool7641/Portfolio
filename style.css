@@ -451,7 +451,7 @@ Hero Section (Matrix style)
 
 /* diagonal 0/1 text overlay */
 .security-graphic::after {
-  content: '';
+  content: '@#$%^&**CLASSIFIED*&^%$#@';
   position: absolute;
   top: 8%;
   left: 8%;
