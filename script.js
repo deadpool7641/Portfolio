@@ -15,11 +15,23 @@ window.addEventListener('scroll', () => {
 });
 
 // Mobile Navigation
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('nav-active');
-  hamburger.classList.toggle('active');
-  document.body.classList.toggle('no-scroll'); // Prevent body scrolling when menu is open
-});
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('nav-active');
+    hamburger.classList.toggle('active');
+    document.body.classList.toggle('no-scroll');
+  });
+
+  navLinksItems.forEach(item => {
+    item.addEventListener('click', () => {
+      if (navLinks.classList.contains('nav-active')) {
+        navLinks.classList.remove('nav-active');
+        hamburger.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+      }
+    });
+  });
+}
 
 // Close mobile menu when clicking on a link
 navLinksItems.forEach(item => {
