@@ -5,21 +5,29 @@ const hamburger = document.querySelector('.hamburger');
 const navLinksItems = document.querySelectorAll('.nav-links li');
 const contactForm = document.getElementById('contact-form');
 
-// Header scroll effect
+// Header scroll effect - glass background intensification
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
-    header.classList.add('header-scroll');
+    header.style.backgroundColor = 'rgba(15, 23, 42, 0.95)';
+    header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
   } else {
-    header.classList.remove('header-scroll');
+    header.style.backgroundColor = 'rgba(15, 23, 42, 0.85)';
+    header.style.boxShadow = 'none';
   }
 });
 
-// Mobile Navigation (guard for null)
+// Mobile Navigation
 if (hamburger && navLinks) {
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('nav-active');
+    
+    // Hamburger animation
     hamburger.classList.toggle('active');
-    document.body.classList.toggle('no-scroll'); // Prevent body scrolling when menu is open
+    
+    if (hamburger.classList.contains('active')) {
+        // Transform lines for X shape via CSS if needed, 
+        // or just rely on the toggle logic
+    }
   });
 
   // Close mobile menu when clicking on a link
@@ -28,13 +36,12 @@ if (hamburger && navLinks) {
       if (navLinks.classList.contains('nav-active')) {
         navLinks.classList.remove('nav-active');
         hamburger.classList.remove('active');
-        document.body.classList.remove('no-scroll');
       }
     });
   });
 }
 
-// Load animations & observers when DOM is ready
+// Load animations & observers (Scroll Fade-In)
 document.addEventListener('DOMContentLoaded', () => {
   const animateElements = () => {
     const sections = document.querySelectorAll('section');
@@ -55,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
   animateElements();
 });
 
-// Handle contact form submission
+// Handle contact form submission (Mockup)
 if (contactForm) {
   contactForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -64,45 +71,37 @@ if (contactForm) {
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
 
-    // Simple form validation
     if (!name || !email || !subject || !message) {
       alert('Please fill out all fields');
       return;
     }
 
-    // Here you would normally send the form data to a server
     const formData = { name, email, subject, message };
     console.log('Form submitted:', formData);
 
-    // Show success message
-    const successMessage = document.createElement('div');
-    successMessage.className = 'success-message';
-    successMessage.innerHTML = `
-      <p>Thank you for your message, ${name}! I'll get back to you soon.</p>
+    // Create a cleaner success message
+    const formContainer = contactForm.parentElement;
+    formContainer.innerHTML = `
+      <div style="text-align: center; padding: 2rem; background: rgba(59, 130, 246, 0.1); border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.3);">
+        <h3 style="color: #fff; margin-bottom: 1rem;">Message Sent</h3>
+        <p style="color: #cbd5e1;">Thank you, ${name}. I will review your message and get back to you shortly.</p>
+      </div>
     `;
-
-    // Replace form with success message
-    contactForm.innerHTML = '';
-    contactForm.appendChild(successMessage);
   });
 }
 
-// Add smooth scrolling to all links
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
     const targetId = this.getAttribute('href');
-    if (targetId === '#') return; // Skip if href is just "#"
+    if (targetId === '#') return;
     const targetElement = document.querySelector(targetId);
     if (targetElement) {
       window.scrollTo({
-        top: targetElement.offsetTop - 80, // Adjust for header height
+        top: targetElement.offsetTop - 80, // Adjust for fixed header
         behavior: 'smooth'
       });
     }
   });
 });
-
-// Add typing effect to the binary in hero section
-const binaryElement = document.querySelector('.security-graphic::after'); // not valid selector, so skip
-// Instead, we just keep CSS-based animation for matrix effect, no JS needed here.
