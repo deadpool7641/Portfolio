@@ -451,7 +451,7 @@ Hero Section (Matrix style)
 
 /* diagonal 0/1 text overlay */
 .security-graphic::after {
-  content: '0101010011010101010010101101010010101011 00110101 01001011 01010100';
+  content: '';
   position: absolute;
   top: 8%;
   left: 8%;
