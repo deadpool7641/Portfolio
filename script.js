@@ -14,14 +14,15 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Mobile Navigation
+// Mobile Navigation (guard for null)
 if (hamburger && navLinks) {
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('nav-active');
     hamburger.classList.toggle('active');
-    document.body.classList.toggle('no-scroll');
+    document.body.classList.toggle('no-scroll'); // Prevent body scrolling when menu is open
   });
 
+  // Close mobile menu when clicking on a link
   navLinksItems.forEach(item => {
     item.addEventListener('click', () => {
       if (navLinks.classList.contains('nav-active')) {
@@ -32,17 +33,6 @@ if (hamburger && navLinks) {
     });
   });
 }
-
-// Close mobile menu when clicking on a link
-navLinksItems.forEach(item => {
-  item.addEventListener('click', () => {
-    if (navLinks.classList.contains('nav-active')) {
-      navLinks.classList.remove('nav-active');
-      hamburger.classList.remove('active');
-      document.body.classList.remove('no-scroll');
-    }
-  });
-});
 
 // Load animations & observers when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -114,18 +104,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Add typing effect to the binary in hero section
-const binaryElement = document.querySelector('.binary');
-if (binaryElement) {
-  const originalText = binaryElement.innerText;
-  binaryElement.innerText = '';
-  let i = 0;
-  const typeWriter = () => {
-    if (i < originalText.length) {
-      binaryElement.innerText += originalText.charAt(i);
-      i++;
-      setTimeout(typeWriter, 50);
-    }
-  };
-  // Start typing effect when page loads
-  setTimeout(typeWriter, 1000);
-}
+const binaryElement = document.querySelector('.security-graphic::after'); // not valid selector, so skip
+// Instead, we just keep CSS-based animation for matrix effect, no JS needed here.
