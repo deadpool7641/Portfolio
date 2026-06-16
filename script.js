@@ -1,108 +1,49 @@
 // DOM Elements
-const header = document.querySelector('header');
-const navLinks = document.querySelector('.nav-links');
+const header = document.getElementById('navbar');
 const hamburger = document.querySelector('.hamburger');
-const navLinksItems = document.querySelectorAll('.nav-links li');
+const navLinks = document.querySelector('.nav-links');
 const contactForm = document.getElementById('contact-form');
 
-// Header scroll effect
+// Add subtle box-shadow to header on scroll
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    header.classList.add('header-scroll');
+  if (window.scrollY > 10) {
+    header.classList.add('scrolled');
   } else {
-    header.classList.remove('header-scroll');
+    header.classList.remove('scrolled');
   }
 });
 
-// Mobile Navigation (guard for null)
-if (hamburger && navLinks) {
+// Mobile menu toggle
+if (hamburger) {
   hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('nav-active');
-    hamburger.classList.toggle('active');
-    document.body.classList.toggle('no-scroll'); // Prevent body scrolling when menu is open
-  });
-
-  // Close mobile menu when clicking on a link
-  navLinksItems.forEach(item => {
-    item.addEventListener('click', () => {
-      if (navLinks.classList.contains('nav-active')) {
-        navLinks.classList.remove('nav-active');
-        hamburger.classList.remove('active');
-        document.body.classList.remove('no-scroll');
-      }
-    });
+    navLinks.classList.toggle('active');
   });
 }
 
-// Load animations & observers when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-  const animateElements = () => {
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-      const observer = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('section-animate');
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-      observer.observe(section);
-    });
-  };
-  animateElements();
+// Close mobile menu when a link is clicked
+const navItems = document.querySelectorAll('.nav-links a');
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    if (navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+    }
+  });
 });
 
-// Handle contact form submission
+// Handle contact form submission placeholder
 if (contactForm) {
-  contactForm.addEventListener('submit', e => {
+  contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    
     const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-
-    // Simple form validation
-    if (!name || !email || !subject || !message) {
-      alert('Please fill out all fields');
-      return;
-    }
-
-    // Here you would normally send the form data to a server
-    const formData = { name, email, subject, message };
-    console.log('Form submitted:', formData);
-
-    // Show success message
-    const successMessage = document.createElement('div');
-    successMessage.className = 'success-message';
-    successMessage.innerHTML = `
-      <p>Thank you for your message, ${name}! I'll get back to you soon.</p>
+    
+    // Replace form with professional success message
+    contactForm.innerHTML = `
+      <div style="text-align: center; padding: 2rem 0;">
+        <i class="fas fa-check-circle" style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;"></i>
+        <h3 style="margin-bottom: 0.5rem;">Message Sent</h3>
+        <p style="color: var(--text-secondary);">Thank you, ${name}. I will review your message and reply to you shortly.</p>
+      </div>
     `;
-
-    // Replace form with success message
-    contactForm.innerHTML = '';
-    contactForm.appendChild(successMessage);
   });
 }
-
-// Add smooth scrolling to all links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href');
-    if (targetId === '#') return; // Skip if href is just "#"
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop - 80, // Adjust for header height
-        behavior: 'smooth'
-      });
-    }
-  });
-});
-
-// Add typing effect to the binary in hero section
-const binaryElement = document.querySelector('.security-graphic::after'); // not valid selector, so skip
-// Instead, we just keep CSS-based animation for matrix effect, no JS needed here.
