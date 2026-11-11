@@ -8,6 +8,12 @@ const PROJECT_DETAILS = {
     title: 'IITPlanet — Digital Education & Mentoring Platform',
     summary:
       'Architected and launched www.iitplanet.com as the sole full-stack engineer, delivering an end-to-end product-based digital education ecosystem.',
+    pipeline: [
+      { stage: '01 / AUTH', detail: 'Facial & Signature Verification' },
+      { stage: '02 / SCHEDULER', detail: 'AI Scheduler + Zoho & WhatsApp' },
+      { stage: '03 / BILLING', detail: 'Paywall & Tiered 1:1 / Group Flows' },
+      { stage: '04 / PORTALS', detail: 'Student & Parent Live Dashboards' }
+    ],
     architecture: [
       'Custom facial and signature verification systems authenticating students and securing live assessments.',
       'Automated AI class scheduler integrated directly with Zoho Meeting and WhatsApp APIs for live classes, mentor bookings, and notifications.',
@@ -23,6 +29,12 @@ const PROJECT_DETAILS = {
     title: 'Hybrid PyTorch IoT Network Intrusion Detection',
     summary:
       'Confidential, leakage-safe PyTorch classification system built for advanced multi-class IoT network intrusion detection.',
+    pipeline: [
+      { stage: '01 / INPUT', detail: 'Leakage-Safe IoT Telemetry' },
+      { stage: '02 / FEATURES', detail: 'Residual Tabular MLP + Autoencoder' },
+      { stage: '03 / SEQUENCE', detail: '1D CNN + BiLSTM Pipeline' },
+      { stage: '04 / OUTPUT', detail: '>99% Acc · 34 Attack Classes' }
+    ],
     architecture: [
       'Residual Tabular MLP branch paired with an Autoencoder for latent anomaly feature extraction.',
       '1D Convolutional Neural Network (1D CNN) and Bidirectional LSTM (BiLSTM) stages capturing sequential network traffic patterns.',
@@ -38,6 +50,12 @@ const PROJECT_DETAILS = {
     title: 'DA-STGT: Disaster-Aware Spatio-Temporal Graph Transformer',
     summary:
       'Confidential predictive model designed to forecast urban traffic congestion during emergencies such as flooding and road blockages.',
+    pipeline: [
+      { stage: '01 / DATASET', detail: 'TrafficTab23 Urban Network' },
+      { stage: '02 / SPATIAL', detail: 'Road Graph Connectivity' },
+      { stage: '03 / TEMPORAL', detail: 'Graph Transformer Attention' },
+      { stage: '04 / FORECAST', detail: 'Flood & Blockage Congestion' }
+    ],
     architecture: [
       'Graph Transformer architecture modeling spatial road network connectivity across urban intersections.',
       'Temporal attention layers capturing rapid traffic propagation shifts during sudden disaster events.',
@@ -52,6 +70,12 @@ const PROJECT_DETAILS = {
     title: 'Enterprise Legal AI Platform',
     summary:
       'High-performance backend infrastructure and web workspace enabling accurate enterprise-grade legal document analysis.',
+    pipeline: [
+      { stage: '01 / CLIENT', detail: 'Next.js Legal Workspace' },
+      { stage: '02 / API', detail: 'FastAPI Async Backend' },
+      { stage: '03 / INDEX', detail: 'FAISS Dense Vector Store' },
+      { stage: '04 / SYNTHESIS', detail: 'Low-Latency RAG Answers' }
+    ],
     architecture: [
       'Asynchronous FastAPI backend paired with a Next.js frontend workspace for rapid document ingestion and querying.',
       'FAISS dense vector database powering Retrieval-Augmented Generation (RAG) across large legal corpora.',
@@ -66,6 +90,12 @@ const PROJECT_DETAILS = {
     title: 'AuraMed — Medical Prediction Dashboard',
     summary:
       'Comprehensive MERN-stack medical prediction dashboard leveraging modern hybrid machine learning architectures to evaluate patient histories.',
+    pipeline: [
+      { stage: '01 / DATA', detail: 'Patient History Ingestion' },
+      { stage: '02 / BACKEND', detail: 'Node.js + Express + MongoDB' },
+      { stage: '03 / ENSEMBLE', detail: 'Hybrid ML Model Fusion' },
+      { stage: '04 / UI', detail: 'React Diagnostic Charts' }
+    ],
     architecture: [
       'MERN full-stack web architecture (MongoDB, Express.js, React.js, Node.js) with secure API routes.',
       'Modern hybrid ML ensemble combining top-tier predictive models into a unified inference pipeline.',
@@ -80,6 +110,12 @@ const PROJECT_DETAILS = {
     title: 'FraudGuard — Credit Card Fraud Detection',
     summary:
       'Production-ready machine learning pipeline built to detect fraudulent transactions under extreme class imbalance.',
+    pipeline: [
+      { stage: '01 / INGEST', detail: 'Imbalanced Transaction Stream' },
+      { stage: '02 / PIPELINE', detail: 'Random Forest Classifier' },
+      { stage: '03 / EXPORT', detail: 'Joblib Model Serialization' },
+      { stage: '04 / DEPLOY', detail: 'Production Inference Ready' }
+    ],
     architecture: [
       'Random Forest classification pipeline tuned specifically for heavily skewed fraud-to-legitimate transaction ratios.',
       'Clean preprocessing and feature transformation stages bundled for reproducible inference.',
@@ -94,6 +130,12 @@ const PROJECT_DETAILS = {
     title: 'Recon-Scanner — Automated Vulnerability Engine',
     summary:
       'Custom Python network scanning utility mimicking enterprise offensive security reconnaissance workflows.',
+    pipeline: [
+      { stage: '01 / PROBE', detail: 'Python Network Discovery' },
+      { stage: '02 / ENUM', detail: 'Enterprise Recon Emulation' },
+      { stage: '03 / MAP', detail: 'Automated Exposure Mapping' },
+      { stage: '04 / HARDEN', detail: 'Endpoint Risk Profiling' }
+    ],
     architecture: [
       'Automated port, service, and host discovery engine engineered in Python.',
       'Automated vulnerability mapping workflow enabling rapid identification of system exposures.',
@@ -108,6 +150,12 @@ const PROJECT_DETAILS = {
     title: 'Kalman Traffic Tracker & Encrypted Android Suite',
     summary:
       'Combined computer vision tracking research and production mobile engineering across transportation and secure communications.',
+    pipeline: [
+      { stage: '01 / VISION', detail: 'Kalman Filter Traffic Tracking' },
+      { stage: '02 / BOOKING', detail: 'Java + PHP + MongoDB App' },
+      { stage: '03 / PAYMENTS', detail: 'Secure Payment Gateways' },
+      { stage: '04 / COMMS', detail: 'E2EE Kotlin Chatting App' }
+    ],
     architecture: [
       'Computer vision tracking modules utilizing Kalman filters for algorithmic traffic feature tracking.',
       'Production-ready Android vehicle booking application built with Java, PHP, and MongoDB featuring secure payment gateway integration.',
@@ -173,6 +221,8 @@ function initTheme() {
    ========================================================================== */
 function initHeaderAndNav() {
   const header = document.getElementById('navbar');
+  const progressBar = document.getElementById('scroll-progress');
+  const printBtn = document.getElementById('print-cv-btn');
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
   const navItems = document.querySelectorAll('.nav-link');
@@ -181,6 +231,12 @@ function initHeaderAndNav() {
   const onScroll = () => {
     if (header) {
       header.classList.toggle('scrolled', window.scrollY > 16);
+    }
+
+    if (progressBar) {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = maxScroll > 0 ? Math.min(100, (window.scrollY / maxScroll) * 100) : 0;
+      progressBar.style.width = `${pct}%`;
     }
 
     const scrollPos = window.scrollY + 130;
@@ -199,17 +255,35 @@ function initHeaderAndNav() {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  if (printBtn) {
+    printBtn.addEventListener('click', () => window.print());
+  }
+
   if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
+    const closeMenu = () => {
+      navLinks.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    };
+
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isOpen = navLinks.classList.toggle('active');
       hamburger.setAttribute('aria-expanded', String(isOpen));
     });
 
-    navItems.forEach((item) => {
-      item.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
-      });
+    navItems.forEach((item) => item.addEventListener('click', closeMenu));
+
+    document.addEventListener('click', (e) => {
+      if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        closeMenu();
+        hamburger.focus();
+      }
     });
   }
 }
@@ -316,6 +390,31 @@ function initProjectModal() {
     lead.className = 'modal-lead';
     lead.textContent = data.summary;
 
+    const flowSec = document.createElement('div');
+    flowSec.className = 'modal-section';
+    const flowHeading = document.createElement('h4');
+    flowHeading.textContent = 'System Dataflow';
+    const flowWrap = document.createElement('div');
+    flowWrap.className = 'arch-flow';
+    (data.pipeline || []).forEach((step, idx) => {
+      const node = document.createElement('div');
+      node.className = 'arch-node';
+      const strong = document.createElement('strong');
+      strong.textContent = step.stage;
+      const span = document.createElement('span');
+      span.textContent = step.detail;
+      node.append(strong, span);
+      flowWrap.appendChild(node);
+
+      if (idx < data.pipeline.length - 1) {
+        const arrow = document.createElement('i');
+        arrow.className = 'fas fa-arrow-right arch-arrow';
+        arrow.setAttribute('aria-hidden', 'true');
+        flowWrap.appendChild(arrow);
+      }
+    });
+    flowSec.append(flowHeading, flowWrap);
+
     const archSec = document.createElement('div');
     archSec.className = 'modal-section';
     const archHeading = document.createElement('h4');
@@ -366,11 +465,13 @@ function initProjectModal() {
     doneBtn.addEventListener('click', closeModal);
     actions.appendChild(doneBtn);
 
-    modalBody.append(eyebrow, title, lead, archSec, stackSec, actions);
+    modalBody.append(eyebrow, title, lead, flowSec, archSec, stackSec, actions);
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
     if (closeBtn) closeBtn.focus();
   };
+
+  window.openProjectModal = openModal;
 
   triggers.forEach((btn) => {
     btn.addEventListener('click', () => openModal(btn.dataset.project));
@@ -395,6 +496,18 @@ function initCommandPalette() {
   const list = document.getElementById('cmd-list');
   if (!palette || !input || !list) return;
 
+  const jumpTo = (hash) => {
+    const el = document.querySelector(hash);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const projectCommands = Object.entries(PROJECT_DETAILS).map(([id, proj]) => ({
+    label: `Inspect Architecture: ${proj.title}`,
+    tag: 'Project',
+    icon: 'fas fa-sitemap',
+    action: () => window.openProjectModal?.(id)
+  }));
+
   const commands = [
     { label: 'Go to About & Overview', tag: 'Section', icon: 'fas fa-user', action: () => jumpTo('#about') },
     { label: 'Go to Experience', tag: 'Section', icon: 'fas fa-briefcase', action: () => jumpTo('#experience') },
@@ -402,6 +515,7 @@ function initCommandPalette() {
     { label: 'Go to Technical Arsenal', tag: 'Section', icon: 'fas fa-layer-group', action: () => jumpTo('#skills') },
     { label: 'Go to Education', tag: 'Section', icon: 'fas fa-graduation-cap', action: () => jumpTo('#education') },
     { label: 'Go to Contact', tag: 'Section', icon: 'fas fa-envelope', action: () => jumpTo('#contact') },
+    ...projectCommands,
     { label: 'Visit IITPlanet.com (Live Product)', tag: 'External', icon: 'fas fa-globe', action: () => window.open('https://www.iitplanet.com', '_blank', 'noopener') },
     { label: 'Open GitHub Profile', tag: 'External', icon: 'fab fa-github', action: () => window.open('https://github.com/deadpool7641', '_blank', 'noopener') },
     { label: 'Open LinkedIn Profile', tag: 'External', icon: 'fab fa-linkedin-in', action: () => window.open('https://www.linkedin.com/in/malle-ganesh-2a43062ba/', '_blank', 'noopener') },
@@ -413,11 +527,6 @@ function initCommandPalette() {
 
   let selectedIndex = 0;
   let filtered = [...commands];
-
-  const jumpTo = (hash) => {
-    const el = document.querySelector(hash);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
 
   const render = () => {
     list.innerHTML = '';
@@ -433,16 +542,31 @@ function initCommandPalette() {
       const li = document.createElement('li');
       li.className = `cmd-item${idx === selectedIndex ? ' selected' : ''}`;
       li.setAttribute('role', 'option');
-      li.innerHTML = `
-        <span class="cmd-item-left"><i class="${cmd.icon}"></i><span>${cmd.label}</span></span>
-        <span class="cmd-item-tag">${cmd.tag}</span>
-      `;
+
+      const left = document.createElement('span');
+      left.className = 'cmd-item-left';
+      const icon = document.createElement('i');
+      icon.className = cmd.icon;
+      const text = document.createElement('span');
+      text.textContent = cmd.label;
+      left.append(icon, text);
+
+      const tag = document.createElement('span');
+      tag.className = 'cmd-item-tag';
+      tag.textContent = cmd.tag;
+
+      li.append(left, tag);
       li.addEventListener('click', () => {
         close();
         cmd.action();
       });
       list.appendChild(li);
     });
+
+    const selectedEl = list.querySelector('.cmd-item.selected');
+    if (selectedEl) {
+      selectedEl.scrollIntoView({ block: 'nearest' });
+    }
   };
 
   const open = () => {
@@ -509,6 +633,17 @@ function initCopyTriggers() {
   document.querySelectorAll('.copy-trigger').forEach((btn) => {
     btn.addEventListener('click', () => {
       copyText(btn.dataset.copy, btn.dataset.label || 'Copied to clipboard');
+      const iconEl = btn.querySelector('i');
+      if (iconEl) {
+        if (!btn.dataset.origIcon) {
+          btn.dataset.origIcon = iconEl.className;
+        }
+        iconEl.className = 'fas fa-check';
+        clearTimeout(btn._copyTimer);
+        btn._copyTimer = setTimeout(() => {
+          iconEl.className = btn.dataset.origIcon;
+        }, 1500);
+      }
     });
   });
 }
@@ -633,7 +768,7 @@ function initScrollReveal() {
         }
       });
     },
-    { threshold: 0.12, rootMargin: '0px 0px -30px 0px' }
+    { threshold: 0.04, rootMargin: '0px 0px -20px 0px' }
   );
 
   revealEls.forEach((el) => observer.observe(el));

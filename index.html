@@ -24,6 +24,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
   <!-- Ambient Background Layers -->
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="bg-aurora" aria-hidden="true"></div>
@@ -52,6 +55,10 @@
           <i class="fas fa-terminal"></i>
           <span>Quick Menu</span>
           <kbd>Ctrl K</kbd>
+        </button>
+
+        <button type="button" class="icon-btn" id="print-cv-btn" aria-label="Print or Save Resume PDF" title="Print / Save as PDF">
+          <i class="fas fa-print"></i>
         </button>
 
         <button type="button" class="icon-btn" id="theme-toggle" aria-label="Toggle color theme" title="Toggle Dark / Light Mode">
@@ -161,6 +168,11 @@
                     <span class="mini-lbl">Session Lock</span>
                   </div>
                 </div>
+                <div class="inspector-footer-action">
+                  <button type="button" class="mono-link modal-trigger" data-project="iitplanet">
+                    <i class="fas fa-sitemap"></i> Inspect Full Architecture <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
               </div>
 
               <!-- Tab 2: IoT Intrusion Detection -->
@@ -190,6 +202,11 @@
                     <span class="mini-lbl">Hybrid Model</span>
                   </div>
                 </div>
+                <div class="inspector-footer-action">
+                  <button type="button" class="mono-link modal-trigger" data-project="iot-ids">
+                    <i class="fas fa-sitemap"></i> Inspect Model Pipeline <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
               </div>
 
               <!-- Tab 3: Legal RAG -->
@@ -218,6 +235,11 @@
                     <span class="mini-val">Next.js</span>
                     <span class="mini-lbl">Client App</span>
                   </div>
+                </div>
+                <div class="inspector-footer-action">
+                  <button type="button" class="mono-link modal-trigger" data-project="legal-ai">
+                    <i class="fas fa-sitemap"></i> Inspect RAG Architecture <i class="fas fa-arrow-right"></i>
+                  </button>
                 </div>
               </div>
             </div>
